@@ -1,4 +1,7 @@
 ---
+
+# add repo key and repo and install packer
+
 - name: Add HashiCorp Packer repository
   yum_repository:
     name: packer

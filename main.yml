@@ -7,7 +7,7 @@
   tasks:
 
     - name: Install basics
-      import_tasks: tasks/basic.yaml
+      import_tasks: tasks/basics.yaml
       tags: [ basic_virtualization_install ]
     
     - name: Install Packer
