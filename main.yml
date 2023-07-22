@@ -9,7 +9,7 @@
 # Running configuration for dev vm
 
     - name: Install stuff
-      import_tasks: tasks\vbox_packer_vagrant.yaml
+      import_tasks: tasks/vbox_packer_vagrant.yaml
       tags: [ basic_virtualization_install ]
     
     
