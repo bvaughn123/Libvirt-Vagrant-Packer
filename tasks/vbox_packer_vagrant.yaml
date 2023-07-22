@@ -30,7 +30,7 @@
 - name: vbox repo Install
   get_url:
     url: http://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo
-    dest: etc/yum.repos.d/virtualbox.repo
+    dest: /etc/yum.repos.d/virtualbox.repo
 
 - name: Update yum cache
   yum:
