@@ -7,7 +7,7 @@
     name: packer
     description: HashiCorp Packer
     baseurl: https://releases.hashicorp.com/packer/{{ packer_version }}/el/8/$basearch
-    gpgcheck: yes
+    gpgcheck: no
     gpgkey: https://keybase.io/hashicorp/pgp_keys.asc
     enabled: yes
 
