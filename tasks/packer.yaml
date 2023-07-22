@@ -1,15 +1,5 @@
 ---
 
-# add repo key and repo and install packer
-
-- name: Add HashiCorp repository
-  yum_repository:
-    name: packer
-    description: HashiCorp Packer
-    baseurl: https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
-    gpgcheck: no
-    enabled: yes
-
 - name: Update yum cache
   yum:
     update_cache: yes
