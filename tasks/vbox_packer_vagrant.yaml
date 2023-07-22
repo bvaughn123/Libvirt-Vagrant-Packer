@@ -25,7 +25,7 @@
 
 - name: Install Vbox asc
   rpm_key: 
-  key: /tmp/oracle_vbox.asc
+    key: /tmp/oracle_vbox.asc
 
 - name: vbox repo Install
   get_url:
