@@ -20,16 +20,17 @@
 
 - name: Get VBox asc
   get_url: 
-  url: https://www.virtualbox.org/download/oracle_vbox.asc
-  dest: /tmp/oracle_vbox.asc
+    url: https://www.virtualbox.org/download/oracle_vbox.asc
+    dest: /tmp/oracle_vbox.asc
 
 - name: Install Vbox asc
   rpm_key: 
   key: /tmp/oracle_vbox.asc
 
 - name: vbox repo Install
-  get_url: http://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo
-  dest: etc/yum.repos.d/virtualbox.repo
+  get_url:
+    url: http://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo
+    dest: etc/yum.repos.d/virtualbox.repo
 
 - name: Update yum cache
   yum:
