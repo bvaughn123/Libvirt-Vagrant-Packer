@@ -19,6 +19,6 @@
       - wget
       - gnupg2
       - yum-utils
-
+      - dnf-plugins-core
 
 
