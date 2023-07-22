@@ -3,7 +3,7 @@
     name: virtualbox
     description: Oracle VirtualBox
     baseurl: http://download.virtualbox.org/virtualbox/rpm/el/8/$basearch
-    gpgcheck: yes
+    gpgcheck: no
     gpgkey: https://www.virtualbox.org/download/oracle_vbox.asc
     enabled: yes
 
