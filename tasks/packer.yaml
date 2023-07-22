@@ -1,0 +1,18 @@
+---
+- name: Add HashiCorp Packer repository
+  yum_repository:
+    name: packer
+    description: HashiCorp Packer
+    baseurl: https://releases.hashicorp.com/packer/{{ packer_version }}/el/8/$basearch
+    gpgcheck: yes
+    gpgkey: https://keybase.io/hashicorp/pgp_keys.asc
+    enabled: yes
+
+- name: Update yum cache
+  yum:
+    update_cache: yes
+
+- name: Install Packer
+  package:
+    name: packer
+    state: present
