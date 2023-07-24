@@ -8,13 +8,16 @@
 
     - name: Install basics
       import_tasks: tasks/basics.yaml
-      tags: [ basic_virtualization_install ]
+      tags: [ basic ]
     
     - name: Install Packer and Vagrant role
       import_tasks: tasks/vagpak.yaml
-      tags: [ basic_virtualization_install ]
+      tags: [ vagrant, packer ]
     
-    - name: Install virtualbox
-      import_tasks: tasks/vbox.yaml
-      tags: [ basic_virtualization_install ]
+    # - name: Install virtualbox
+    #   import_tasks: tasks/vbox.yaml
+    #   tags: [ basic_virtualization_install ]
 
+    - name: libvirt Install
+      import_tasks: tasks/libvirt.yaml
+      tags: [ libvirt ]

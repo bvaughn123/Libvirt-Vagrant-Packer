@@ -20,6 +20,8 @@
       - gnupg2
       - yum-utils
       - dnf-plugins-core
+      - akmods
+      
 
 - name: Enable epel repo
   dnf:
@@ -29,3 +31,10 @@
   yum:
     name: "*"
     state: latest
+
+- name: Generate a Self Signed OpenSSL certificate
+  openssl_certificate:
+    path: /etc/ssl/crt/ansible.com.crt
+    privatekey_path: /etc/ssl/private/ansible.com.pem
+    csr_path: /etc/ssl/csr/ansible.com.csr
+    provider: selfsigned

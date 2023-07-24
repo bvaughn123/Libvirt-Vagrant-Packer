@@ -1,7 +1,10 @@
 # Playbook 
-> Install for Vbox, vagrant and packer
+> Install for packer vagrant and libvirtd
 
-| :memo:        | need to sign modules vbox if using efi secboot |
+
+- [ ] Remove virtualbox, use libvirt and KVM
+    
+
 |---------------|:------------------------|
 
 | :information: | pulling static vbox rpm |

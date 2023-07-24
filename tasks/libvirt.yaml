@@ -1,0 +1,46 @@
+- name: Install required packages
+  become: true
+  yum:
+    name:
+      - bash-completion
+      - vim
+      - '@virt'
+      - virt-install
+      - libvirt-devel
+    state: present
+
+- name: Start and enable libvirtd service
+  become: true
+  systemd:
+    name: libvirtd
+    state: started
+    enabled: yes
+
+- name: Install additional packages
+  become: true
+  yum:
+    name:
+      - '@virt'
+      - virt-top
+      - libguestfs-tools
+      - virt-install
+    state: present
+
+
+- name: Start and enable libvirtd service again
+  become: true
+  systemd:
+    name: libvirtd
+    state: started
+    enabled: yes
+
+- name: Install tigervnc package
+  become: true
+  yum:
+    name: tigervnc
+    state: present
+
+- name: upgrade packages
+  yum:
+    name: '*'
+    state: latest
