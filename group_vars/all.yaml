@@ -1,4 +1,4 @@
 ---
 
 install_vagrant_packer: True
-
+git_pat: "{{ git_pat }}"
