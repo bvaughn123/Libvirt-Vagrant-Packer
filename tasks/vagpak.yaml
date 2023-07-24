@@ -1,0 +1,7 @@
+---
+
+- name: Install Vagrant and Packer
+  import_role:
+    name: hashicorp
+  vars:
+    install_vagrant_packer: True

@@ -1,8 +1,4 @@
 ---
-vagrant_version: 2.3.7
-# version as of 22July2023
-# https://releases.hashicorp.com/vagrant/
 
-packer_version: 1.9.2
-# version as of 22July2023
-# https://releases.hashicorp.com/packer/
+install_vagrant_packer: True
+

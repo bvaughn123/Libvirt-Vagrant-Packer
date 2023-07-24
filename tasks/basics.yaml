@@ -20,3 +20,12 @@
       - gnupg2
       - yum-utils
       - dnf-plugins-core
+
+- name: Enable epel repo
+  dnf:
+    name: epel-release
+
+- name: Upgrade all packages
+  yum:
+    name: "*"
+    state: latest

@@ -1,7 +1,0 @@
----
-
-- name: Install Vagrant
-  package:
-    name: vagrant
-    state: present
-
