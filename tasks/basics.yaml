@@ -40,9 +40,6 @@
     name: "*"
     state: latest
 
-- name: Clone the base_images
-  git:
-    repo: git@github.com:bvaughn123/base_images.git
-    dest: /root/base_images
+
 
 

@@ -13,11 +13,11 @@
     - name: Install Packer and Vagrant role
       import_tasks: tasks/vagpak.yaml
       tags: [ vagrant, packer ]
-    
-    # - name: Install virtualbox
-    #   import_tasks: tasks/vbox.yaml
-    #   tags: [ basic_virtualization_install ]
 
     - name: libvirt Install
       import_tasks: tasks/libvirt.yaml
       tags: [ libvirt ]
+
+    - name: Clone Base Images
+      import_tasks: tasks/clone_base_images.yaml
+      tags: [ base_images ]

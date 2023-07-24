@@ -1,0 +1,6 @@
+---
+
+- name: Clone Base VMs
+  git:
+    repo: "https://{{ git_pat }}@github.com:bvaughn123/base_images.git"
+    dest: /root/base_images
