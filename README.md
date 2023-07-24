@@ -3,3 +3,6 @@
 
 | :memo:        | need to sign modules vbox if using efi secboot |
 |---------------|:------------------------|
+
+| :information: | pulling static vbox rpm |
+|---------------|:------------------------|
