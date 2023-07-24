@@ -21,6 +21,14 @@
       - yum-utils
       - dnf-plugins-core
       - git
+      - qemu-kvm
+      - libvirt
+      - virt-manager
+      - virt-install
+      - bridge-utils
+      - virt-top
+      - libguestfs-tools
+      - virt-viewer
       
 
 - name: Enable epel repo
