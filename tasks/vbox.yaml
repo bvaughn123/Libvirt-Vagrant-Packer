@@ -7,7 +7,7 @@
   yum:
     name: /tmp/VirtualBox.x86_64.rpm
     state: present
-    disable_gpg_checkH: True
+    disable_gpg_check: True
 
 - name: Update yum cache
   yum:
