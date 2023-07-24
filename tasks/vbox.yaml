@@ -7,16 +7,16 @@
   yum:
     name: /tmp/VirtualBox.x86_64.rpm
     state: present
-
+    disable_gpg_checkH: True
 
 - name: Update yum cache
   yum:
     update_cache: yes
 
-- name: Install VirtualBox
-  package:
-    name: VirtualBox-7.0.10
-    state: present
+# - name: Install VirtualBox
+#   package:
+#     name: VirtualBox-7.0.10
+#     state: present
 
 - name: Start and enable the VirtualBox service
   service:
