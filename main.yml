@@ -19,5 +19,5 @@
       tags: [ libvirt ]
 
     - name: Clone Base Images
-      import_tasks: tasks/clone_base_images.yaml
+      import_tasks: tasks/clone_base_vms.yaml
       tags: [ base_images ]
