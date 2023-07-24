@@ -20,7 +20,7 @@
       - gnupg2
       - yum-utils
       - dnf-plugins-core
-      - akmods
+      - git
       
 
 - name: Enable epel repo

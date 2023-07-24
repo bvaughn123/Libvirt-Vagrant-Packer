@@ -26,7 +26,6 @@
       - virt-install
     state: present
 
-
 - name: Start and enable libvirtd service again
   become: true
   systemd:
