@@ -6,7 +6,7 @@
   register: basic_complete
 
 - name: Setup Basic packages
-  import_tasks: basic_install.yaml
+  import_tasks: basics_install.yaml
   when: basic_complete.stat.exists == False
 
 
