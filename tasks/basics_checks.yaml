@@ -1,0 +1,17 @@
+---
+
+- name: Check if the basic packages have already installed
+  stat: 
+    path: /root/.basic_installed_true
+  register: basic_complete
+
+- name: Setup Basic packages
+  import_tasks: basic_install.yaml
+  when: basic_complete.stat.exists == False
+
+
+
+
+
+
+

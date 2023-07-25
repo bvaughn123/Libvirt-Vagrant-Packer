@@ -4,4 +4,5 @@
   git:
     repo: "https://github.com/bvaughn123/base_images.git"
     dest: /root/base_images
+  when: base_image_pull == True
 

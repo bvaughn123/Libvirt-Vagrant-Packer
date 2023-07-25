@@ -1,9 +1,7 @@
----
-
 - name: Update yum cache
   yum:
     update_cache: yes
-
+  
 - name: Install required packages
   yum:
     name: "{{ packages }}"
@@ -29,7 +27,7 @@
       - virt-top
       - libguestfs-tools
       - virt-viewer
-      
+  
 
 - name: Enable epel repo
   dnf:
@@ -40,12 +38,13 @@
     name: "*"
     state: latest
 
-
 - name: Enable RDP
   import_tasks: enable_rdp.yaml
   when: enableRDP is true
+  tags: [ RDPEnabled ]
 
-
-
-
-
+- name: Add File for Check
+  file: 
+    path: /root/.basic_installed_true
+    state: touch
+  
