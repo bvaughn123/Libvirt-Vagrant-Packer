@@ -2,3 +2,4 @@
 
 install_vagrant_packer: True
 git_pat: "{{ git_pat }}"
+base_image_pull: false

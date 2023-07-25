@@ -21,3 +21,4 @@
     - name: Clone Base Images
       import_tasks: tasks/clone_base_vms.yaml
       tags: [ base_images ]
+      when: base_image_pull is true

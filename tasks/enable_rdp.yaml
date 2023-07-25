@@ -1,0 +1,23 @@
+---
+
+- name: Check if xrdp is installed
+  stat:
+    path: /usr/bin/xrdp
+  register: xrdp_installed
+
+- name: Install xrdp
+  dnf:
+    name: xrdp
+    state: present
+  when: xrdp_installed.stat.exists == False
+
+- name: Check if tigervnc-server is installed
+  stat:
+    path: /usr/bin/vncserver
+  register: tigervnc_installed
+
+- name: Install tigervnc-server
+  dnf:
+    name: tigervnc-server
+    state: present
+  when: tigervnc_installed.stat.exists == False

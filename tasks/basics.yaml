@@ -41,5 +41,11 @@
     state: latest
 
 
+- name: Enable RDP
+  import_tasks: enable_rdp.yaml
+  when: enableRDP is true
+
+
+
 
 
