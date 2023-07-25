@@ -27,7 +27,6 @@
       - virt-top
       - libguestfs-tools
       - virt-viewer
-  
 
 - name: Enable epel repo
   dnf:

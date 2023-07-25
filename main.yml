@@ -6,8 +6,8 @@
 
   tasks:
 
-    - name: Install basics
-      import_tasks: tasks/basics.yaml
+    - name: Do Check and Install basic_installs if not already completed.
+      import_tasks: tasks/basics_checks.yaml
       tags: [ basic ]
     
     - name: Install Packer and Vagrant role
@@ -22,3 +22,5 @@
       import_tasks: tasks/clone_base_vms.yaml
       tags: [ base_images ]
       when: base_image_pull is true
+
+    
