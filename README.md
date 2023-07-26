@@ -10,9 +10,20 @@ Setup Packer, Libvirt, and Vagrant via playbook
     
 ## Create a testing workflow
 
-AWX Test Workflow using Static Inventory (single test vm)
+AWX Test Workflow using Static Inventory
+  > Launch -> Project Synch -> Playbook execute -> success conditional -> example maint. tasks
 
-|![](.Resources/simple_workflow_setup.PNG)|
+  ```mermaid
+  Workflow;
+    Launch Template-->Synch Repo;
+    Synch Repo-->Setup Tools;
+    Setup tools-->On Success;
+    Setup tools-->On Failure;
+    On Success-->Maint. Tasks1;
+    On Failure-->Maint. Tasks2;
+  ```
+
+|![](.Resources/simple_workflow_setup.png)|
 |:--:|
 | *Simple Workflow* |
 
@@ -24,9 +35,6 @@ Cool bells:
 - [ ] Utilization of Surveys in the jobs, though unsure how it ineracts with workflows...
 
   - Currently using hardcoded inventory in awx
-
-![static host](.Resources/static_host.PNG)
-![connectivity_check](.Resources/ansible_awx_ping.PNG)
 
 ##  Base Testing tasks 
 
