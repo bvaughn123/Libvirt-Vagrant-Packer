@@ -7,4 +7,6 @@
     install_vagrant_packer: True
   register: vp_install
 
-### install vagrant libvirt plugin here
+- name: Install Libvirt vagrant plugin
+  shell: vagrant install plugin vagrant-libvirt
+  when: vp_install.rc == 0
