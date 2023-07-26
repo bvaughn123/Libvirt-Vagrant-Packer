@@ -11,4 +11,35 @@
   shell: vagrant install plugin vagrant-libvirt
   when: vp_install is defined
 
+# Probably a better way to do this
+- name: Create /tmp/plugins.pkr.hcl for Packer Ansible, qemu, and Vagrant plugins
+  copy:
+    dest: "/tmp/plugins.pkr.hcl"
+    content: |
+      packer {
+        required_plugins {
+          qemu = {
+            source  = "github.com/hashicorp/qemu"
+            version = "~> 1"
+          }
+          ansible = {
+            source  = "github.com/hashicorp/ansible"
+            version = "~> 1"
+          }
+          vagrant = {
+            source  = "github.com/hashicorp/vagrant"
+            version = "~> 1"
+          }
+          libvirt = {
+            version = ">= 0.5.0"
+            source  = "github.com/thomasklein94/libvirt"
+          }
+        }
+      }
 
+- name: Packer init to install plugins
+  shell: packer init /tmp/plugins.pkr.hcl
+  register: packer_install
+
+- debug: 
+    msg: packer_install.stdout
