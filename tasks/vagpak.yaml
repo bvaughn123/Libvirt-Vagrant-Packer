@@ -12,7 +12,7 @@
   when: vp_install is defined
 
 # Probably a better way to do this
-- name: Create /tmp/plugins.pkr.hcl for Packer Ansible, qemu, and Vagrant plugins
+- name: Create /tmp/plugins.pkr.hcl for Packer Plugins
   copy:
     dest: "/tmp/plugins.pkr.hcl"
     content: |
@@ -38,7 +38,9 @@
       }
 
 - name: Packer init to install plugins
-  shell: packer init /tmp/plugins.pkr.hcl
+  command: "packer init plugins.pkr.hcl"
+  args:
+    chdir: /tmp/
   register: packer_install
 
 - debug: 
