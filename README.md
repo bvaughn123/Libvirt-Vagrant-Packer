@@ -13,15 +13,15 @@ Setup Packer, Libvirt, and Vagrant via playbook
 AWX Test Workflow using Static Inventory
   > Launch -> Project Synch -> Playbook execute -> success conditional -> example maint. tasks
 
-  ```mermaid
-  Workflow;
+```mermaid
+  graph Workflow;
     Launch-->Synch;
     Synch Repo-->Setup;
     Setup-->On_Success;
     Setup-->On_Failure;
     On_Success-->Maint_Tasks1;
     On_Failure-->Maint_Tasks2;
-  ```
+```
 
 |![](.Resources/simple_workflow_setup.png)|
 |:--:|
