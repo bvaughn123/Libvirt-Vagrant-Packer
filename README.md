@@ -15,17 +15,19 @@ AWX Test Workflow using Static Inventory
 
   ```mermaid
   Workflow;
-    Launch Template-->Synch Repo;
-    Synch Repo-->Setup Tools;
-    Setup tools-->On Success;
-    Setup tools-->On Failure;
-    On Success-->Maint Tasks1;
-    On Failure-->Maint Tasks2;
+    Launch-->Synch;
+    Synch Repo-->Setup_Tools;
+    Setup-->On_Success;
+    Setup-->On_Failure;
+    On_Success-->Maint_Tasks1;
+    On_Failure-->Maint_Tasks2;
   ```
 
 |![](.Resources/simple_workflow_setup.png)|
 |:--:|
 | *Simple Workflow* |
+
+- [ ] [todo]Make complete workflow, with test_stuff...
 
 Cool bells:
 
