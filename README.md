@@ -14,7 +14,7 @@ AWX Test Workflow using Static Inventory
   > Launch -> Project Synch -> Playbook execute -> success conditional -> example maint. tasks
 
 ```mermaid
-  graph Workflow;
+  graph TD;
     Launch-->Synch;
     Synch Repo-->Setup;
     Setup-->On_Success;
