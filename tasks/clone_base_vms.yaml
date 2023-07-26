@@ -2,7 +2,9 @@
 
 - name: Clone Base VMs
   git:
-    repo: "https://github.com/bvaughn123/base_images.git"
-    dest: /root/base_images
+    repo: git@github.com:bvaughn123/mk_vm_test_thingys.git
+    dest: "/home/{{ GIT_USER }}/base_images"
+  become: yes
+  become_user: "{{ GIT_USER }}"
   when: base_image_pull == True
 

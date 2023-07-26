@@ -15,9 +15,3 @@
   stat:
     path: /usr/bin/vncserver
   register: tigervnc_installed
-
-- name: Install tigervnc-server
-  dnf:
-    name: tigervnc-server
-    state: present
-  when: tigervnc_installed.stat.exists == False
