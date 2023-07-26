@@ -38,7 +38,7 @@
       }
 
 - name: Packer init to install plugins
-  command: "packer init plugins.pkr.hcl"
+  command: "/usr/bin/packer init plugins.pkr.hcl"
   args:
     chdir: /tmp/
   register: packer_install
