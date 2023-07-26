@@ -19,8 +19,8 @@ AWX Test Workflow using Static Inventory
     Synch Repo-->Setup Tools;
     Setup tools-->On Success;
     Setup tools-->On Failure;
-    On Success-->Maint. Tasks1;
-    On Failure-->Maint. Tasks2;
+    On Success-->Maint Tasks1;
+    On Failure-->Maint Tasks2;
   ```
 
 |![](.Resources/simple_workflow_setup.png)|
