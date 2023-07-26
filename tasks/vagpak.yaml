@@ -5,3 +5,6 @@
     name: hashicorp
   vars:
     install_vagrant_packer: True
+  register: vp_install
+
+### install vagrant libvirt plugin here

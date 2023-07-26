@@ -1,16 +1,36 @@
-# Playbook 
-> Install for packer vagrant and libvirtd
+# Nested VM Base Build (awx workflow) 
 
+## Make the Setup VM
+Setup Packer, Libvirt, and Vagrant via playbook
+- [x] rdp added
+- [ ] Remove manual and add task for vagrant install plugin libvirt 
+       
+    - Can't find ansible modules for running vagrant via native tasks.
+    - [todo] (inprogress) Create a simple plugin for running commands ( install plugin, up, destroy, and package)
+    
+## Create a testing workflow
 
-- [x] Remove virtualbox, use libvirt 
+AWX Test Workflow using Static Inventory (single test vm)
 
+|![](.Resources/simple_workflow_setup.PNG)|
+|:--:|
+| *Simple Workflow* |
 
-| :information: | Setup of Base Testing VM |
-|---------------|:------------------------|
+Cool bells:
 
-##  Base Testing VM Setup 
+- [ ] Would be cool to have a dynamic inventory using tags via the awx vcenter plugin  
+        - [Using VMware vCenter Tags in a Red Hat Ansible Tower Dynamic Inventory](https://www.ansible.com/blog/using-vmware-vcenter-tags-in-a-red-hat-ansible-tower-dynamic-inventory)  
 
-| :Workflow Job:  | :Plays: | :Tasks: | :Hosts: |
+- [ ] Utilization of Surveys in the jobs, though unsure how it ineracts with workflows...
+
+  - Currently using hardcoded inventory in awx
+
+![static host](.Resources/static_host.PNG)
+![connectivity_check](.Resources/ansible_awx_ping.PNG)
+
+##  Base Testing tasks 
+
+| Workflow Job  | Plays: | :Tasks: | :Hosts: |
 |-----------------|---------|---------|---------|
 | 1/1 | 1 | 20 | 1 | 
 
