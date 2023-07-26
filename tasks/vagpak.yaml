@@ -4,7 +4,7 @@
   import_role:
     name: hashicorp
   vars:
-    install_vagrant_packer: True
+    install_vagrant_packer: "{{ install_vagrant_packer }}"
   register: vp_install
 
 - name: Install Libvirt vagrant plugin

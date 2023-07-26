@@ -1,7 +1,6 @@
 ---
 
-install_vagrant_packer: True
-git_pat: "{{ git_pat }}"
+install_vagrant_packer: false
 base_image_pull: false
 enableRDP: false
 GIT_USER: "{{ GIT_USER }}"

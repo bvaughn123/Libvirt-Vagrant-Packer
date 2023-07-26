@@ -38,7 +38,7 @@ Cool bells:
 
 - [ ] Utilization of Surveys in the 
 
-  - [todo] Test Surveys in workflows
+  - [todo]? Test Surveys in workflows
 
   - Currently using hardcoded inventory in awx
 
@@ -65,3 +65,30 @@ Cool bells:
     TASK [hashicorp : Install packer and vagrant] **********************************
     TASK [Install required packages] ***********************************************
 ```
+
+### Changes
+
+#### 26July2023 
+
+- Added GIT_USER var  
+  > Not defined, but used via Extra Vars
+
+[tasks](tasks/vagpak.yaml) modifications:
+
+- Added vagrant plugin install via command module for now
+- Added packer plugins install task via copy and content (surely better way to do this)  
+  
+  ```yaml
+    - name: Install Vagrant and Packer
+    import_role:
+      name: hashicorp
+    vars:
+      install_vagrant_packer: "{{ install_vagrant_packer }}"
+    register: vp_install
+  
+    - name: Install Libvirt vagrant plugin
+      shell: vagrant install plugin vagrant-libvirt
+      when: vp_install is defined
+  ```
+
+
