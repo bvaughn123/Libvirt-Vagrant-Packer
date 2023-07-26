@@ -16,7 +16,7 @@ AWX Test Workflow using Static Inventory
 ```mermaid
   graph TD;
     Launch-->Synch;
-    Synch Repo-->Setup;
+    Synch-->Setup;
     Setup-->On_Success;
     Setup-->On_Failure;
     On_Success-->Maint_Tasks1;
