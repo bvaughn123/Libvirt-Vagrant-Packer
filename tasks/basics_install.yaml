@@ -53,7 +53,7 @@
     state: latest
     umask: "0022"
   with_items:
-    - ansibile
+    - ansible
     - virtualenv
 
 - name: Enable RDP
