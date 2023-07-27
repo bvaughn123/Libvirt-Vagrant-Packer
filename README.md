@@ -1,19 +1,28 @@
 # Nested VM Base Build (awx workflow) 
 
-## Make the Setup VM
-Setup Packer, Libvirt, and Vagrant via playbook
-- [x] rdp added
-- [ ] Remove manual and add task for vagrant install plugin libvirt  
-    > Use Plugin (may need to update and test) 
-    []()
-       
-    - Can't find ansible modules for running vagrant via native tasks.
-    - [todo] (inprogress) Create a simple plugin for running commands ( install plugin, up, destroy, and package)
-    
-## Create a testing workflow
+## Base Test VM
+
+Create a Base Test VM to support quick provisioning of nested virtual and immutable testing vms.
+
+**Purpose:**
+
+    Use an environment permissive to implementation of local workflow execution for testing and development.
+
+Setup and install 
+- Packer
+- Libvirt/Qemu 
+- Vagrant
+- RDP stuff
+
+
+## Supplemental Tasks:
+
+### AWX
+
+Basic example:  
 
 AWX Test Workflow using Static Inventory
-  > Launch -> Project Synch -> Playbook execute -> success conditional -> example maint. tasks
+> Launch -> Project Synch -> Playbook execute -> success conditional -> example maint. tasks
 
 |![](.Resources/simple_workflow_setup.png)|
 |:--:|
@@ -29,55 +38,27 @@ AWX Test Workflow using Static Inventory
     On_Failure-->Maint_TL2;
 ```
 
-- [ ] [todo] Make workflow, with test_stuff repo...
+#### Supplemenmtal tasks to test and research:
 
-Cool bells:
+- [ ] Test Utilization of Surveys in the 
+- [ ] [todo]? Test Surveys in workflows
+- [ ] Dynamic inventories via awx vcenter plugin  
+    - [Using VMware vCenter Tags in a Red Hat Ansible Tower Dynamic Inventory](https://www.ansible.com/blog/using-vmware-vcenter-tags-in-a-red-hat-ansible-tower-dynamic-inventory)
+- [ ] Execution container collections and roles prestaged
 
-- [ ] Would be cool to have a dynamic inventory using tags via the awx vcenter plugin  
-        - [Using VMware vCenter Tags in a Red Hat Ansible Tower Dynamic Inventory](https://www.ansible.com/blog/using-vmware-vcenter-tags-in-a-red-hat-ansible-tower-dynamic-inventory)  
+### Task List
 
-- [ ] Utilization of Surveys in the 
+Output:
+  > **AS OF 25JUL**: [Task List](.Resources/task_list.md)
 
-  - [todo]? Test Surveys in workflows
 
-  - Currently using hardcoded inventory in awx
-
-##  Base Testing tasks 
-
-| Workflow Job  | Plays: | :Tasks: | :Hosts: |
-|-----------------|---------|---------|---------|
-| 1/1 | 1 | 20 | 1 | 
-
-> Stdout
-```
-    ok: [rocky_test]
-    TASK [Check if the basic packages have already installed] **********************
-    TASK [Update yum cache] ********************************************************
-    TASK [Install required packages] ***********************************************
-    TASK [Enable epel repo] ********************************************************
-    TASK [Upgrade all packages] ****************************************************
-    TASK [Check if xrdp is installed] **********************************************
-    TASK [Install xrdp] ************************************************************
-    TASK [Check if tigervnc-server is installed] ***********************************
-    TASK [Install tigervnc-server] *************************************************
-    TASK [Add File for Check] ******************************************************
-    TASK [hashicorp : Configure hashicorp repo] ************************************
-    TASK [hashicorp : Install packer and vagrant] **********************************
-    TASK [Install required packages] ***********************************************
-```
-
-### Changes
+## Changes
 
 #### 26July2023 
 
-- Added GIT_USER var  
-  > Not defined, but used via Extra Vars
+- [x] Add packer plugins install task via copy and content (surely better way to do this):  [tasks file ](tasks/vagpak.yaml)
 
-[tasks](tasks/vagpak.yaml) modifications:
-
-- Added vagrant plugin install via command module for now
-- Added packer plugins install task via copy and content (surely better way to do this)  
-  
+- [x] Add vagrant plugin install via command module for now: [tasks file](tasks/vagpak.yaml)
   ```yaml
     - name: Install Vagrant and Packer
     import_role:
@@ -91,4 +72,13 @@ Cool bells:
       when: vp_install is defined
   ```
 
+#### 27July2023
 
+**Reorg tasks in workflow:**
+
+- [ ] 1. Remove clone task
+    > **Why:** Reorganized and done at different stage of workflow
+- [ ] 2. Remove git_user var
+    > **Why:** Reorganized and done at different stage of workflow
+- [ ] 3. Updated basics_install to include venv, setuptools, ansible, and and latest pip
+    > **Why:** Support local testing

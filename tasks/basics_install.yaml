@@ -1,3 +1,7 @@
+- name: Enable epel repo
+  dnf:
+    name: epel-release
+
 - name: Update yum cache
   yum:
     update_cache: yes
@@ -27,15 +31,30 @@
       - virt-top
       - libguestfs-tools
       - virt-viewer
-
-- name: Enable epel repo
-  dnf:
-    name: epel-release
+      - python3-pip
+      - python3-setuptools
+      - python3-devel.x86-64
 
 - name: Upgrade all packages
   yum:
     name: "*"
     state: latest
+
+- name: Pip Upgrade
+  pip:
+    name: pip
+    executable: pip3
+    state: latest
+
+- name: Pip venv and ansibile install
+  pip: 
+    name: "{{ item }}"
+    executable: pip3
+    state: latest
+    umask: "0022"
+  with_items:
+    - ansibile
+    - virtualenv
 
 - name: Enable RDP
   import_tasks: enable_rdp.yaml
