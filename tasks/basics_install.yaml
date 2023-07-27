@@ -33,7 +33,7 @@
       - virt-viewer
       - python3-pip
       - python3-setuptools
-      - python3-devel.x86-64
+      - python3-devel
 
 - name: Upgrade all packages
   yum:
