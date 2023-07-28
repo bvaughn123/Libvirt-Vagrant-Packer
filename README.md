@@ -87,5 +87,6 @@ Output:
 
 **28July23**:
 
-- Added Remote user var and kept the basic clone stuff in for now 
-- updated Group Vars for consitent case
+- [x] Add Remote user var and kept the basic clone stuff in for now 
+- [x] update Group Vars for consitent case
+
