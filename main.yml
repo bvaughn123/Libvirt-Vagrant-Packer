@@ -12,7 +12,7 @@
     
     - name: Install Packer and Vagrant role
       import_tasks: tasks/vagpak.yaml
-      tags: [ vagrant, packer ]
+      tags: [ vagrant_packer_install ]
 
     - name: libvirt Install
       import_tasks: tasks/libvirt.yaml
