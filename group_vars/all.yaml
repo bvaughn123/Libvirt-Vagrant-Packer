@@ -1,5 +1,6 @@
 ---
 
-install_vagrant_packer: false
-base_image_pull: false
-enableRDP: false
+INSTALL_VAGRANT_PACKER: false
+BASE_IMAGE_PULL: false
+ENABLE_RDP: false
+

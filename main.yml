@@ -18,9 +18,10 @@
       import_tasks: tasks/libvirt.yaml
       tags: [ libvirt ]
 
-    - name: Clone Base Images
-      import_tasks: tasks/clone_base_vms.yaml
-      tags: [ base_images ]
-      when: base_image_pull is true
+    # Removed and put in at later in workflow
+    # - name: Clone Base Images
+    #   import_tasks: tasks/clone_base_vms.yaml
+    #   tags: [ base_images ]
+    #   when: BASE_IMAGE_PULL is true
 
     

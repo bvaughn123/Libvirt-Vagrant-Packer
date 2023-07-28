@@ -64,7 +64,7 @@ Output:
     import_role:
       name: hashicorp
     vars:
-      install_vagrant_packer: "{{ install_vagrant_packer }}"
+      INSTALL_VAGRANT_PACKER: "{{ INSTALL_VAGRANT_PACKER }}"
     register: vp_install
   
     - name: Install Libvirt vagrant plugin
@@ -72,13 +72,20 @@ Output:
       when: vp_install is defined
   ```
 
-#### 27July2023
+#### Changes:
+
+**27July23**:
 
 **Reorg tasks in workflow:**
 
-- [ ] 1. Remove clone task
+- [x] 1. Remove clone task
     > **Why:** Reorganized and done at different stage of workflow
-- [ ] 2. Remove git_user var
+- [x] 2. Remove git_user var
     > **Why:** Reorganized and done at different stage of workflow
-- [ ] 3. Updated basics_install to include venv, setuptools, ansible, and and latest pip
+- [x] 3. Updated basics_install to include venv, setuptools, ansible, and and latest pip
     > **Why:** Support local testing
+
+**28July23**:
+
+- Added Remote user var and kept the basic clone stuff in for now 
+- updated Group Vars for consitent case

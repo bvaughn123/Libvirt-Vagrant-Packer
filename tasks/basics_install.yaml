@@ -58,7 +58,7 @@
 
 - name: Enable RDP
   import_tasks: enable_rdp.yaml
-  when: enableRDP is true
+  when: ENABLE_RDP is true
   tags: [ RDPEnabled ]
 
 - name: Add File for Check

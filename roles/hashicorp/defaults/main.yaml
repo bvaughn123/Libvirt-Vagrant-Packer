@@ -1,2 +1,2 @@
 ---
-vagpak: "{{ install_vagrant_packer }}"
+vagpak: "{{ INSTALL_VAGRANT_PACKER }}"
